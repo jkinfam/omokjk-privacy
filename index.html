@@ -8,46 +8,95 @@
   body { font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
   h1 { font-size: 1.6rem; } h2 { font-size: 1.3rem; margin-top: 2.5rem; border-bottom: 1px solid #ddd; } h3 { font-size: 1.05rem; margin-top: 1.5rem; }
   a { color: #8b5e34; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.92rem; } th, td { border: 1px solid #ccc; padding: 0.4rem 0.5rem; text-align: left; vertical-align: top; } th { background: #f4efe8; }
 </style>
 </head>
 <body>
 <h1>Omok JK 개인정보처리방침 / Privacy Policy</h1>
-<p>최종 수정일 / Last updated: 2026-10-18</p>
+<p>최종 수정일 / Last updated: 2026-10-31</p>
 
 <h2>한국어</h2>
 <h3>1. 개요</h3>
-<p>Omok JK(이하 "앱")는 JoongKi Min(이하 "개발자")이 제공하는 오목 게임 앱입니다. 앱은 회원가입이나 로그인이 없으며, 개발자가 운영하는 서버로 개인정보를 보내지 않습니다.</p>
+<p>Omok JK(이하 "앱")는 JoongKi Min(이하 "개발자")이 제공하는 오목 게임 앱입니다. 앱은 회원가입이나 로그인이 없고, 개발자가 직접 운영하는 서버도 없습니다. 다만 "온라인 대국" 기능을 쓸 때는 두 기기 사이의 대국 정보가 Google LLC의 Firebase 서비스를 거칩니다(4절).</p>
 <h3>2. 앱이 기기에 저장하는 정보</h3>
-<p>설정값(규칙, 착수 방식, 좌표·금수·수 번호 표시, 효과음, 진동, 판 색, 화면 모드, 대국 시계, 언어, 블루투스 대국 이름)과 대국 기록(최대 50개)은 기기 안에만 저장되며 외부로 전송되지 않습니다. 앱을 삭제하면 함께 삭제됩니다.</p>
+<p>설정값(규칙, 착수 방식, 좌표·금수·수 번호 표시, 효과음, 진동, 판 색, 화면 모드, 대국 시계, 언어, 블루투스·온라인 대국에서 상대에게 보일 이름), 대국 기록(최대 50개), 온라인 대국용 익명 계정의 로그인 정보(온라인 대국을 한 번 이상 쓴 뒤)는 기기 안에 저장됩니다. 블루투스·온라인 대국 중 상대에게 전달되는 이름과 수(3·4절)를 빼면 외부로 전송되지 않으며, 앱을 삭제하면 함께 삭제됩니다(iOS의 익명 계정 로그인 정보만 예외, 4절).</p>
 <h3>3. 블루투스 대국</h3>
 <p>가까이 있는 상대 기기와 블루투스 LE로 직접 연결합니다. 입력한 이름과 둔 수는 상대 기기로만 전송되며 인터넷이나 개발자 서버를 거치지 않습니다. 이를 위해 블루투스(근처 기기) 권한을 요청합니다. Android 11 이하에서는 운영체제 요구로 위치 권한이 필요할 수 있으나 위치 정보를 수집하거나 저장하지 않습니다.</p>
-<h3>4. 광고와 제3자 서비스</h3>
+<h3>4. 온라인 대국</h3>
+<p>"온라인 대국"은 초대 링크(https://omokjk.web.app/j/코드) 또는 6자 초대 코드로 만난 두 기기가 Google LLC의 Firebase Realtime Database(서버 위치: 싱가포르)를 거쳐 수를 주고받는 기능입니다. 이 기능을 쓰지 않으면 앱은 Firebase에 연결하지 않습니다. 온라인 대국을 쓸 때 다음 정보가 Firebase를 거쳐 상대 기기로 전달되거나 Firebase에 잠시 저장됩니다.</p>
+<ul>
+<li>익명 식별자: Firebase 익명 인증이 기기마다 만들어 주는 무작위 사용자 ID. 이름·이메일·전화번호처럼 사용자를 알아볼 수 있는 정보는 들어 있지 않으며, 앱은 그런 정보를 요구하지 않습니다.</li>
+<li>대국 정보: 사용자가 입력한 이름, 고른 색·규칙·판 크기, 둔 수, 무르기·무승부·재대국·기권 요청과 그 응답, 접속 여부, 방 코드, 방을 만든 시각</li>
+<li>접속 정보: Firebase가 서비스 운영과 보안을 위해 처리하는 IP 주소, 기기·앱 정보</li>
+</ul>
+<p>채팅 기능은 없으며, 위 정보 외의 글이나 연락처는 전달되지 않습니다. 방의 정보(이름·수순 포함)는 방장이 대국을 나가거나 상대와의 연결 끊김이 확정되면 방장의 앱이 삭제합니다. 방장의 앱이 강제 종료되는 등의 이유로 삭제되지 못한 방은 만든 지 24시간이 지난 뒤 누군가 그 코드로 접근할 때 삭제되며, 그때까지는 서버에 남을 수 있습니다. 익명 식별자는 다음 온라인 대국에서 같은 계정을 쓰기 위해 Firebase에 남지만, 만든 지 30일이 지나면 Firebase가 자동으로 삭제합니다(그 뒤 온라인 대국을 쓰면 새 식별자가 만들어집니다). 식별자에는 사용자를 알아볼 정보가 없으므로 식별자만으로는 누구인지 알 수 없습니다. Android에서는 앱을 삭제하면 기기의 로그인 정보가 지워져 그 식별자는 더 쓰이지 않고, iOS에서는 로그인 정보가 운영체제 키체인에 남아 30일 안에 앱을 다시 설치하면 같은 식별자를 쓸 수 있습니다. 초대 링크를 브라우저에서 열면 Firebase Hosting이 제공하는 안내 페이지가 보일 수 있으며, 이 페이지는 입력을 받지 않습니다. Firebase의 개인정보 처리 방식: <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></p>
+<h3>5. 광고와 제3자 서비스</h3>
 <p>앱은 Google AdMob을 통해 광고를 표시합니다. Google은 광고 식별자(사용자가 허용한 경우), IP 주소와 대략적인 위치, 기기 정보, 앱·광고 상호작용 정보와 진단 정보를 수집·이용할 수 있습니다. 자세한 내용: <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>, <a href="https://policies.google.com/technologies/partner-sites">파트너 사이트·앱에서의 데이터 사용</a>. 기기 설정에서 맞춤 광고를 끄거나 광고 식별자를 재설정할 수 있습니다. EEA·영국·스위스 사용자에게는 앱 안에서 광고 동의를 묻고 설정의 "개인정보 옵션"에서 바꿀 수 있습니다. iOS에서는 앱 추적 투명성 창에서 추적 허용 여부를 고를 수 있으며 허용하지 않아도 앱은 정상 동작합니다.</p>
-<h3>5. 아동</h3>
+<h3>6. 아동</h3>
 <p>앱은 만 13세 미만 아동을 대상으로 하지 않으며 아동의 개인정보를 의도적으로 수집하지 않습니다. 광고는 전체 이용가(G) 등급으로 제한해 요청합니다.</p>
-<h3>6. 정보의 보관과 삭제</h3>
-<p>기기에 저장된 정보는 앱을 삭제하면 모두 지워집니다. 대국 기록은 앱 안의 "대국 기록 &gt; 기록 지우기"로도 삭제할 수 있습니다. 광고 관련 정보의 보관은 Google의 정책을 따릅니다.</p>
-<h3>7. 방침의 변경</h3>
-<p>방침이 바뀌면 이 페이지의 최종 수정일을 갱신합니다.</p>
-<h3>8. 문의</h3>
+<h3>7. 정보의 보관과 삭제</h3>
+<p>기기에 저장된 정보는 앱을 삭제하면 모두 지워집니다. 대국 기록은 앱 안의 "대국 기록 &gt; 기록 지우기"로도 삭제할 수 있습니다. 온라인 대국의 방 정보는 방장이 나갈 때 방장의 앱이 삭제하고(삭제되지 못한 방은 24시간 뒤 접근이 있을 때 삭제), 익명 식별자는 만든 지 30일이 지나면 Firebase가 자동으로 삭제합니다(4절). 광고 정보와 Firebase 접속 정보의 보관은 Google의 정책을 따릅니다.</p>
+<h3>8. 개인정보의 국외 이전</h3>
+<p>앱이 쓰는 Google 서비스는 국외에서 운영됩니다(개인정보 보호법 제28조의8에 따른 안내).</p>
+<table>
+<tr><th>이전받는 자</th><th>이전 목적</th><th>이전되는 항목</th><th>이전 국가</th><th>보유·이용 기간</th></tr>
+<tr><td>Google LLC (AdMob)</td><td>광고 표시</td><td>5절의 광고 식별자, IP 주소, 기기 정보, 광고 상호작용 정보</td><td>미국</td><td>Google 개인정보처리방침에 따름</td></tr>
+<tr><td>Google LLC (Firebase)</td><td>온라인 대국 중계(익명 인증, 실시간 데이터베이스, 초대 링크 안내 페이지)</td><td>4절의 익명 식별자, 대국 정보, 접속 정보</td><td>싱가포르(데이터베이스), 미국(인증·접속 기록)</td><td>방 정보는 대국 종료 때 삭제(삭제되지 못한 방은 24시간 뒤 접근 시 삭제), 익명 식별자는 만든 지 30일 뒤 자동 삭제</td></tr>
+</table>
+<ul>
+<li>이전 시기·방법: 광고가 표시될 때와 온라인 대국을 쓸 때 정보통신망을 통해 전송됩니다.</li>
+<li>이전받는 자 연락처: Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA · <a href="https://support.google.com/policies/contact/general_privacy_form">Google 개인정보 보호 문의</a></li>
+<li>거부 방법: 온라인 대국을 쓰지 않으면 Firebase로 이전되지 않습니다. 광고 관련 이전은 기기 설정의 맞춤 광고 끄기·광고 식별자 재설정, 앱 안의 광고 동의 창(EEA·영국·스위스)과 "개인정보 옵션"으로 줄일 수 있으나, 광고 표시 자체는 앱 이용에 포함됩니다.</li>
+</ul>
+<h3>9. 방침의 변경</h3>
+<p>방침이 바뀌면 이 페이지의 최종 수정일을 갱신합니다. 중요한 변경은 앱 업데이트 안내로도 알립니다.</p>
+<ul>
+<li>2026-10-31: 온라인 대국(4절)과 국외 이전 안내(8절)를 추가했습니다. 온라인 대국의 익명 식별자는 만든 지 30일 뒤 자동 삭제됩니다. 이 판은 온라인 대국이 들어간 1.1.0 업데이트부터 적용됩니다.</li>
+<li>2026-10-18: 첫 게시</li>
+</ul>
+<h3>10. 문의</h3>
 <p><a href="mailto:bldboyfriend@gmail.com">bldboyfriend@gmail.com</a></p>
 
 <h2>English</h2>
 <h3>1. Overview</h3>
-<p>Omok JK (the "App") is an Omok (Gomoku) game provided by JoongKi Min. The App has no accounts or sign-in and sends no personal data to any server operated by the Developer.</p>
+<p>Omok JK (the "App") is an Omok (Gomoku) game provided by JoongKi Min (the "Developer"). The App has no accounts or sign-in, and the Developer operates no servers. When you use the "Online match" feature, however, game data travels between the two devices through Firebase, a service of Google LLC (section 4).</p>
 <h3>2. Information stored on your device</h3>
-<p>Settings (rules, how stones are placed, coordinate/forbidden-point/move-number display, sound, vibration, board color, appearance, game clock, language, Bluetooth match name) and game history (up to 50 games) are stored only on your device, never transmitted, and removed when you uninstall the App.</p>
+<p>Settings (rules, how stones are placed, coordinate/forbidden-point/move-number display, sound, vibration, board color, appearance, game clock, language, the name shown to your opponent in Bluetooth and online matches), game history (up to 50 games) and the sign-in token of the anonymous account used for online matches (after you have used Online match at least once) are stored on your device. Except for the name and moves exchanged with your opponent during a Bluetooth or online match (sections 3 and 4), they are never transmitted, and they are removed when you uninstall the App (except the anonymous sign-in token on iOS; section 4).</p>
 <h3>3. Bluetooth matches</h3>
 <p>The App connects directly to a nearby device over Bluetooth LE. The name you enter and your moves are sent only to the opponent's device, never over the internet. The App requests the Bluetooth (nearby devices) permission. On Android 11 and earlier the OS may require the location permission for scanning; the App does not collect or store location data.</p>
-<h3>4. Advertising and third-party services</h3>
+<h3>4. Online matches</h3>
+<p>"Online match" lets two devices that meet through an invite link (https://omokjk.web.app/j/code) or a 6-character invite code exchange moves through Google LLC's Firebase Realtime Database (server location: Singapore). The App does not connect to Firebase unless you use this feature. While you use it, the following information passes through Firebase to the opponent's device or is stored briefly in Firebase.</p>
+<ul>
+<li>Anonymous identifier: a random user ID that Firebase Anonymous Authentication creates for each device. It contains nothing that identifies you, such as a name, email address or phone number, and the App never asks for such information.</li>
+<li>Game data: the name you entered, the chosen color, rules and board size, your moves, undo/draw/rematch/resign requests and their answers, whether you are connected, the room code, and the time the room was created</li>
+<li>Connection data: the IP address and device/app information that Firebase processes to operate and secure the service</li>
+</ul>
+<p>There is no chat, and no text or contacts other than the above are transmitted. Room data (including names and moves) is deleted by the host's app when the host leaves the game or the connection to the opponent is confirmed lost. A room that could not be deleted (for example because the host's app was force-quit) is removed once it is older than 24 hours and someone accesses that code again; until then it may remain on the server. The anonymous identifier stays in Firebase so that your next online match can use the same account, but Firebase deletes it automatically 30 days after it was created (your next online match after that creates a new one). Because the identifier carries no identifying information, it alone cannot tell who you are. On Android, uninstalling the App removes the sign-in token from your device, so that identifier is not used again; on iOS the token remains in the system keychain, so reinstalling the App within those 30 days may use the same identifier. Opening an invite link in a browser may show an information page served by Firebase Hosting; that page takes no input. How Firebase handles data: <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></p>
+<h3>5. Advertising and third-party services</h3>
 <p>The App shows ads through Google AdMob. Google may collect advertising identifiers (if allowed), IP address and approximate location, device information, app and ad interaction data, and diagnostics. See the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from sites or apps that use its services</a>. You can turn off personalized ads or reset your advertising identifier in device settings. Users in the EEA, the UK and Switzerland are asked for consent in the App and can change it under Settings &gt; Privacy options. On iOS the App Tracking Transparency prompt lets you choose; the App works fully either way.</p>
-<h3>5. Children</h3>
+<h3>6. Children</h3>
 <p>The App is not directed at children under 13 and does not knowingly collect personal information from children. Ads are requested with the G content rating.</p>
-<h3>6. Retention and deletion</h3>
-<p>Data stored on your device is removed when you uninstall the App. Game history can also be deleted under Game history &gt; Clear history. Advertising data retention is governed by Google's policies.</p>
-<h3>7. Changes</h3>
-<p>When this policy changes, the "Last updated" date is revised.</p>
-<h3>8. Contact</h3>
+<h3>7. Retention and deletion</h3>
+<p>Data stored on your device is removed when you uninstall the App. Game history can also be deleted under Game history &gt; Clear history. Online room data is deleted by the host's app when the host leaves (a room that could not be deleted is removed once it is older than 24 hours and accessed again); the anonymous identifier is deleted automatically 30 days after it was created (section 4). Retention of advertising data and Firebase connection data is governed by Google's policies.</p>
+<h3>8. International transfer of data</h3>
+<p>The Google services the App uses are operated outside your country (notice under Article 28-8 of the Korean Personal Information Protection Act).</p>
+<table>
+<tr><th>Recipient</th><th>Purpose</th><th>Data transferred</th><th>Country</th><th>Retention</th></tr>
+<tr><td>Google LLC (AdMob)</td><td>Serving ads</td><td>Advertising identifiers, IP address, device information and ad interaction data listed in section 5</td><td>United States</td><td>Per the Google Privacy Policy</td></tr>
+<tr><td>Google LLC (Firebase)</td><td>Relaying online matches (anonymous authentication, Realtime Database, invite-link page)</td><td>Anonymous identifier, game data and connection data listed in section 4</td><td>Singapore (database), United States (authentication and access logs)</td><td>Room data deleted when the game ends (a room that could not be deleted is removed once older than 24 hours and accessed again); anonymous identifier deleted automatically 30 days after creation</td></tr>
+</table>
+<ul>
+<li>When and how: transmitted over the network when an ad is shown and while you use Online match.</li>
+<li>Recipient contact: Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA · <a href="https://support.google.com/policies/contact/general_privacy_form">Google privacy contact form</a></li>
+<li>How to refuse: if you do not use Online match, nothing is transferred to Firebase. Ad-related transfers can be reduced by turning off personalized ads or resetting the advertising identifier in device settings and, in the EEA, the UK and Switzerland, through the in-app consent form and Settings &gt; Privacy options; showing ads itself is part of using the App.</li>
+</ul>
+<h3>9. Changes</h3>
+<p>When this policy changes, the "Last updated" date is revised. Significant changes are also announced in app update notes.</p>
+<ul>
+<li>2026-10-31: Added Online match (section 4) and the international transfer notice (section 8); the anonymous identifier used for online matches is deleted automatically 30 days after creation. This version applies from the 1.1.0 update that introduces Online match.</li>
+<li>2026-10-18: First published</li>
+</ul>
+<h3>10. Contact</h3>
 <p><a href="mailto:bldboyfriend@gmail.com">bldboyfriend@gmail.com</a></p>
 </body>
 </html>
